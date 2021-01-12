@@ -31,3 +31,6 @@ jobs:
       # DEV WebSite Deployment
       - name: Copy files to the DEV website with the AWS CLI
         run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
+
+      - name: AWS CloudFront Cache Invalidation
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/container/latest/index.html"
