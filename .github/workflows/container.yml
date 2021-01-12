@@ -12,17 +12,15 @@ jobs:
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm build
-
-      # AWS S3 Deployment
-      steps:
-        # DEV SITE DEPLOYMENT
+        # --- AWS S3 DEPLOYMENT ---
+        # DEV Credentials config
         - name: Configure AWS credentials from DEV Account
           uses: aws-actions/configure-aws-credentials@v1
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: us-east-1
-
+        # DEV WebSite Deployment
         - name: Copy files to the DEV website with the AWS CLI
           run: |
            aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest
