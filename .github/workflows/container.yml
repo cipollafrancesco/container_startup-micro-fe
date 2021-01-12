@@ -10,9 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      - uses: actions/checkout@v2
-      - run: npm install
-      - run: npm build
+      uses: actions/checkout@v2
+      run: npm install
+
+    - name: Building WebApp
+      run: npm build
 
     # --- AWS S3 DEPLOYMENT ---
 
