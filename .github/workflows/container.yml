@@ -16,7 +16,7 @@ jobs:
         run: npm install
 
       - name: Build WebApp
-        run: npm build
+        run: npm run-script build
 
       # --- AWS S3 DEPLOYMENT ---
 
