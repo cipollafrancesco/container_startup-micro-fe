@@ -11,9 +11,9 @@ const prodConfig = {
     output: {
         // output template at build-time
         filename: '[name].[contenthash].js',
+        publicPath: '/container/latest/' // base path in src fetch
     },
     plugins: [
-
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
