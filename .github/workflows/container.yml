@@ -4,10 +4,10 @@ on:
   push:
     branches: [ develop ]
     paths:
-      - '../../**'
+      - '/**'
 defaults:
   run:
-    working-directory: ../../
+    working-directory: /
 jobs:
   build:
     # VM to use
