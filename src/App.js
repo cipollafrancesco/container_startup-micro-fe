@@ -4,8 +4,7 @@ import MarketingApp from './components/MarketingApp'
 export default () => {
     return (
         <>
-            <h1> App Component!</h1>
-            <hr/>
+            <h1> App Component Works Properly! </h1>
             {/* MARKETING APP (contains Marketing Micro-FE)*/}
             <MarketingApp/>
         </>
