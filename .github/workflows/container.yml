@@ -17,7 +17,7 @@ jobs:
 
       - name: Build WebApp
         run: npm run-script build
-        with:
+        env:
           PRODUCTION_DOMAIN: ${{ secrets.PRODUCTION_DOMAIN }}
 
       # --- AWS S3 DEPLOYMENT ---
