@@ -1,12 +1,17 @@
 import React from 'react'
 import MarketingApp from './components/MarketingApp'
+import Header from './components/Header'
+import {BrowserRouter} from 'react-router-dom'
 
 export default () => {
     return (
-        <>
-            <h1> App Component Works Properly! </h1>
-            {/* MARKETING APP (contains Marketing Micro-FE)*/}
-            <MarketingApp/>
-        </>
+        <BrowserRouter>
+            <>
+                {/* CONTAINER COMPONENT HEADER*/}
+                <Header/>
+                {/* MARKETING APP (contains Marketing Micro-FE)*/}
+                <MarketingApp/>
+            </>
+        </BrowserRouter>
     )
 }
