@@ -8,20 +8,23 @@ const packageJson = require('../package.json')
 const {merge} = require('webpack-merge')
 const commonConfig = require('./webpack.common')
 
+const SERVER_PORT = 8080
+
 const devConfig = {
     mode: 'development',
     devServer: {
-        port: 8080,
-        historyApiFallback: {
-            index: 'index.html',
-        }
+        port: SERVER_PORT,
+        historyApiFallback: true // with object doesn't work
+    },
+    output: {
+        publicPath: `http://localhost:${SERVER_PORT}/`
     },
     plugins: [
         new ModuleFederationPlugin({
             name: 'container',
             remotes: {
-                // TODO manage url in env variable
-                marketing: 'marketing@http://localhost:8081/remoteEntry.js'
+                marketing: 'marketing@http://localhost:8081/remoteEntry.js',
+                auth: 'auth@http://localhost:8082/remoteEntry.js',
             },
             // shared: ['react', 'react-dom']
             shared: packageJson.dependencies,
